@@ -31,7 +31,7 @@ def processFiles(files, args):
           copyUncompress(inputFile, isCompressed.group(1))
           tempFiles.append(isCompressed.group(1))
         else:
-				  readyFiles.append(inputFile)
+          readyFiles.append(inputFile)
       else:
         print 'WARNING: ' + inputFile + ' is not a recognized format!'
       
@@ -42,7 +42,7 @@ def processFiles(files, args):
   executeJava(args, "uk.ac.babraham.FastQC.FastQCApplication", readyFiles + tempFiles)
   # Delete the uncompressed temp files
   for filename in tempFiles:
-		os.remove(filename)
+    os.remove(filename)
   
 def copyUncompress(filename,tempName):
   """------------------------------------------------------------------- 
@@ -178,8 +178,8 @@ def main():
   # Add sam-1.103.jar and jbzip2-0.9.jar to the classpath
   javaPath = ".:./sam-1.103.jar:./jbzip2-0.9.jar"
   os.environ['CLASSPATH'] = javaPath
-	
-	# If files were input on command line, process those files
+  
+  # If files were input on command line, process those files
   if args.inputFiles:
     processFiles(args.inputFiles, javaArgs)
   # If no files were input on command line, process all fastQ files in 
